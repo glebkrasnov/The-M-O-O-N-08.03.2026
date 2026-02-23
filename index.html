@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>The M O O N</title>
+
+    <!-- ИКОНКА ДЛЯ iPHONE -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/8-512.png">
+
+    <!-- ОТКРЫТИЕ КАК ПРИЛОЖЕНИЕ -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- СТИЛИ -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+    <!-- ВХОД -->
+    <div class="container" id="login">
+        <h2>Введи пароль</h2>
+        <input type="password" id="password" placeholder="Пароль">
+        <button onclick="checkPassword()">Войти</button>
+        <p id="error" class="error"></p>
+    </div>
+
+    <!-- САЙТ В ОТПУСКЕ -->
+    <div class="container hidden" id="vacation">
+        <h2>С 8 Марта! 🌷</h2>
+
+        <div class="congrats-box center-text">
+
+    <iframe
+        class="youtube-video"
+        src="https://www.youtube-nocookie.com/embed/tn1oAm9PNak?si=gfQXZEheEw_VpIj2"
+        title="Видео"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+
+</div>
+
+</div>
+
+<script>
+function checkPassword() {
+    const pass = document.getElementById('password').value;
+    const error = document.getElementById('error');
+
+    if (pass === "2589") {
+        document.getElementById('login').classList.add('hidden');
+
+        const vacation = document.getElementById('vacation');
+        vacation.classList.remove('hidden');
+        void vacation.offsetWidth;
+
+        error.textContent = "";
+    } else {
+        error.textContent = "Неверный пароль";
+    }
+}
+</script>
+
+</body>
+</html>
+
+
+
