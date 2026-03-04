@@ -16,6 +16,13 @@ body {
     align-items: center;
 }
 
+.welcome-text {
+    font-family: "Monotype Corsiva", cursive;
+    font-size: 36px;
+    color: #fff;
+    animation: fadeWelcome 2.5s ease forwards;
+}
+
 /* Контейнер */
 .container {
     width: 100%;
