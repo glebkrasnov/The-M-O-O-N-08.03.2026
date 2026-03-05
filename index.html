@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -29,14 +29,12 @@
 <p id="error" class="error"></p>
 </div>
 
-
 <!-- ПРИВЕТСТВИЕ -->
 <div class="welcome hidden" id="welcome">
 <div class="welcome-text">
-Добро пожаловать Екатерина
+Добро пожаловать<br>Екатерина
 </div>
 </div>
-
 
 <!-- КОНТЕНТ -->
 <div class="container hidden" id="vacation">
@@ -47,7 +45,7 @@
 
 <iframe
 class="youtube-video"
-src="https://www.youtube-nocookie.com/embed/tn1oAm9PNak?si=gfQXZEheEw_VpIj2"
+src="https://www.youtube-nocookie.com/embed/tn1oAm9PNak"
 title="Видео"
 frameborder="0"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -60,37 +58,38 @@ allowfullscreen>
 
 </div>
 
-
 <script>
 
-function checkPassword() {
+function checkPassword(){
 
-const pass = document.getElementById('password').value;
-const error = document.getElementById('error');
+const pass = document.getElementById("password").value
+const error = document.getElementById("error")
 
-if (pass === "2589") {
+if(pass === "2589"){
 
-document.getElementById('login').classList.add('hidden');
+document.getElementById("login").classList.add("hidden")
 
-const welcome = document.getElementById('welcome');
-welcome.classList.remove('hidden');
+const welcome = document.getElementById("welcome")
+welcome.classList.remove("hidden")
 
-error.textContent = "";
+setTimeout(()=>{
 
-setTimeout(() => {
+welcome.classList.add("fade-out")
 
-welcome.classList.add('hidden');
+},2000)
 
-const vacation = document.getElementById('vacation');
-vacation.classList.remove('hidden');
+setTimeout(()=>{
 
-}, 2500);
+welcome.classList.add("hidden")
+document.getElementById("vacation").classList.remove("hidden")
+
+},3000)
 
 }
 
-else {
+else{
 
-error.textContent = "Неверный пароль";
+error.textContent="Неверный пароль"
 
 }
 
