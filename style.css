@@ -107,15 +107,18 @@ display:none;
 /* ПРИВЕТСТВИЕ */
 
 #welcome{
-
 position:fixed;
-
 inset:0;
 
 display:flex;
 justify-content:center;
 align-items:center;
 
+pointer-events:none; /* не блокирует клики */
+}
+
+#welcome:not(.hidden){
+pointer-events:auto;
 }
 
 
