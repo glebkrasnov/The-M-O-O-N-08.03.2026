@@ -15,6 +15,21 @@ body {
     background-size: cover;
 }
 
+#welcome h2 {
+    text-align: center;
+    font-size: 24px;
+}
+
+.fade-out {
+    animation: fadeOut 0.8s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
 
 /* Центр страницы */
 
