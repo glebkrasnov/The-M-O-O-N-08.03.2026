@@ -137,11 +137,12 @@ text-align:center;
 
 /* Появление букв */
 
-#typingText span{
+#typingText span {
 
-opacity:0;
+opacity: 0;
+display: inline-block;
 
-animation:letterFade 0.6s forwards;
+animation: letterFade 0.4s ease forwards;
 
 }
 
