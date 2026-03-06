@@ -37,7 +37,10 @@
 
         <p id="error" class="error"></p>
     </div>
-
+<!-- ПРИВЕТСТВИЕ -->
+<div class="container hidden" id="welcome">
+    <h2 id="typingText"></h2>
+</div>
 
     <!-- Сайт в отпуске -->
     <div class="container hidden" id="vacation">
@@ -71,10 +74,10 @@ function checkPassword() {
 
         document.getElementById('login').classList.add('hidden');
 
-        const vacation = document.getElementById('vacation');
-        vacation.classList.remove('hidden');
+        const welcome = document.getElementById('welcome');
+        welcome.classList.remove('hidden');
 
-        void vacation.offsetWidth;
+        typeText("Добро пожаловать, Екатерина!");
 
         error.textContent = "";
 
@@ -86,7 +89,42 @@ function checkPassword() {
 
 }
 
-</script>
 
+function typeText(text) {
+
+    const element = document.getElementById("typingText");
+    let index = 0;
+
+    const interval = setInterval(() => {
+
+        element.textContent += text[index];
+        index++;
+
+        if (index === text.length) {
+
+            clearInterval(interval);
+
+            setTimeout(() => {
+
+                document.getElementById("welcome").classList.add("fade-out");
+
+                setTimeout(() => {
+
+                    document.getElementById("welcome").classList.add("hidden");
+
+                    const vacation = document.getElementById("vacation");
+                    vacation.classList.remove("hidden");
+
+                }, 800);
+
+            }, 2000);
+
+        }
+
+    }, 70);
+
+}
+
+</script>
 </body>
 </html>
