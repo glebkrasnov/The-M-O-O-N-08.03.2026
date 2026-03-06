@@ -1,130 +1,139 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta charset="UTF-8">
 
-    <title>The M O O N</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <!-- Иконка для iPhone -->
-    <link rel="apple-touch-icon" sizes="180x180" href="8-512.png">
+<title>The M O O N</title>
 
-    <!-- Открытие как приложение -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" sizes="180x180" href="8-512.png">
 
-    <!-- Стили -->
-    <link rel="stylesheet" href="style.css">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <div class="page">
 
-    <!-- Вход -->
-    <div class="container" id="login">
-        <h2>Введи пароль</h2>
+<!-- ВХОД -->
 
-        <input
-            type="password"
-            id="password"
-            placeholder="Пароль"
-        >
+<div class="container" id="login">
 
-        <button onclick="checkPassword()">Войти</button>
+<h2>Введи пароль</h2>
 
-        <p id="error" class="error"></p>
-    </div>
-<!-- ПРИВЕТСТВИЕ -->
-<div class="container hidden" id="welcome">
-    <h2 id="typingText"></h2>
+<input type="password" id="password" placeholder="Пароль">
+
+<button onclick="checkPassword()">Войти</button>
+
+<p id="error" class="error"></p>
+
 </div>
 
-    <!-- Сайт в отпуске -->
-    <div class="container hidden" id="vacation">
-        <h2>С 8 Марта! 🌷</h2>
 
-        <div class="congrats-box center-text">
+<!-- ПРИВЕТСТВИЕ -->
 
-            <iframe
-                class="youtube-video"
-                src="https://www.youtube-nocookie.com/embed/tn1oAm9PNak?si=gfQXZEheEw_VpIj2"
-                title="Видео"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
+<div class="hidden" id="welcome">
 
-        </div>
-    </div>
+<h1 id="typingText"></h1>
+
+</div>
+
+
+<!-- ВИДЕО -->
+
+<div class="container hidden" id="vacation">
+
+<h2>С 8 Марта! 🌷</h2>
+
+<div class="congrats-box center-text">
+
+<iframe
+class="youtube-video"
+src="https://www.youtube-nocookie.com/embed/tn1oAm9PNak"
+title="Видео"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen>
+</iframe>
+
+</div>
+
+</div>
 
 </div>
 
 
 <script>
 
-function checkPassword() {
+function checkPassword(){
 
-    const pass = document.getElementById('password').value;
-    const error = document.getElementById('error');
+const pass=document.getElementById('password').value
+const error=document.getElementById('error')
 
-    if (pass === "2589") {
+if(pass==="2589"){
 
-        document.getElementById('login').classList.add('hidden');
+document.getElementById('login').classList.add('hidden')
 
-        const welcome = document.getElementById('welcome');
-        welcome.classList.remove('hidden');
+const welcome=document.getElementById('welcome')
+welcome.classList.remove('hidden')
 
-        typeText("Добро пожаловать, Екатерина!");
+showText("Добро пожаловать, Екатерина!")
 
-        error.textContent = "";
+error.textContent=""
 
-    } else {
+}
 
-        error.textContent = "Неверный пароль";
+else{
 
-    }
+error.textContent="Неверный пароль"
+
+}
 
 }
 
 
-function typeText(text) {
+function showText(text){
 
-    const element = document.getElementById("typingText");
-    let index = 0;
+const element=document.getElementById("typingText")
 
-    const interval = setInterval(() => {
+element.innerHTML=""
 
-        element.textContent += text[index];
-        index++;
+;[...text].forEach((letter,i)=>{
 
-        if (index === text.length) {
+const span=document.createElement("span")
 
-            clearInterval(interval);
+span.textContent=letter
 
-            setTimeout(() => {
+span.style.animationDelay=`${i*0.08}s`
 
-                document.getElementById("welcome").classList.add("fade-out");
+element.appendChild(span)
 
-                setTimeout(() => {
+})
 
-                    document.getElementById("welcome").classList.add("hidden");
+setTimeout(()=>{
 
-                    const vacation = document.getElementById("vacation");
-                    vacation.classList.remove("hidden");
+document.getElementById("welcome").classList.add("fade-out")
 
-                }, 800);
+setTimeout(()=>{
 
-            }, 2000);
+document.getElementById("welcome").classList.add("hidden")
 
-        }
+document.getElementById("vacation").classList.remove("hidden")
 
-    }, 70);
+},800)
+
+},4000)
 
 }
 
 </script>
+
 </body>
 </html>
